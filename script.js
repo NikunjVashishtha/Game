@@ -192,18 +192,19 @@ window.onload = function() {
   // calling function
   move();
 }
-document.getElementsByClassName("switch").item(1).addEventListener("click",controls_change_state());
+let stats = true;
 function controls_change_state()
 {
-  if (stats = true)
+  if (stats)
   {
     document.getElementById("controls_stats").innerText = "Controls: OFF";
     document.getElementById("all_controls").style.display = "none";
+    stats = !stats;
   }
-  else {
+  else
+  {
     document.getElementById("controls_stats").innerText = "Controls: ON";
     document.getElementById("all_controls").style.display = "block";
+    stats = !stats;
   }
-  stats = !stats;
-  alert("no glitch");
 }
