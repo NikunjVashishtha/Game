@@ -18,7 +18,7 @@ window.onload = function() {
   var img = new Image();
   img.src = "https://lh3.googleusercontent.com/uzxizW1FlcmzJ6rVelEdZt87V2-8rAx-Y9Q3Xpqt3szpXzaO65MBPRUFDamK-ze4zHJeufFS9s1QDDw1fg200DwgedEpt8rG0nd4PJ7Jhd98xDT2LbdY8gX1y6Mxos_v2EB_97rwRw=s292-p-k";
   var coin_img = new Image();
-  coin_img.src ="coin.svg";
+  coin_img.src ="https://lh3.googleusercontent.com/8kXeWyezMkdREPn74LjzcVGJh25zbG7mm-OORrlUFLOYsFzR6zJLX8zqcCrAJeSszVnyNBqaWwo1UAdV_jgrrczbYqrTRaTLN65KGywqtBw_HMNpgh7cqjG8wU_MbORSI73TSrUahg=w2400";
 
   // keys' variables & data
   var x = 0;
@@ -240,7 +240,6 @@ function controls_change_state()
     stats = !stats;
   }
 }
-document.getElementsByTagName("body")[0].onclick(disappear);
 function disappear()
 {
   document.getElementById("intro").style.display = "none";
