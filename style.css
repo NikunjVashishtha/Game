@@ -1,5 +1,5 @@
 html {
-    background: url("back.jpg");
+    background: url("https://lh3.googleusercontent.com/qYV6sfyQakmlwKkxbVJumYeIIfjy6myUWqcdXnxaSUXs51dl6KDpM4Ox8_iGKehM89MCslcXBnqUJJzH4Dq0raiFIIOpowwpPlP9Vmz98vre6DvLCKAmcgqh6LZ7rEoMUkH79UwsaA=w2400");
     background-size: cover;
     overflow: hidden;
     -webkit-user-select: none;
@@ -8,11 +8,12 @@ html {
   body {
     margin: 0;
   }
-  #fps_count {
+  #score_count {
+    position: absolute;
     font: 28px sans-serif;
     color: white;
-    position: absolute;
-    margin: 1rem;
+    margin-left: 45%;
+    margin-top: 0.5rem;
   }
   #game_canvas {
     position: absolute;

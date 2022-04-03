@@ -1,9 +1,9 @@
 window.onload = function() {
   // variables (speed & time)
   var timenow = Date.now();
-  let speed = 600;
+  let speed = 500;
   let dir = 0;
-  
+
   // variables (dimensions)
   const absol_h = window.innerHeight;
   const absol_w = window.innerWidth;
@@ -16,7 +16,9 @@ window.onload = function() {
 
   // image data
   var img = new Image();
-  img.src = "rocket.png";
+  img.src = "https://lh3.googleusercontent.com/uzxizW1FlcmzJ6rVelEdZt87V2-8rAx-Y9Q3Xpqt3szpXzaO65MBPRUFDamK-ze4zHJeufFS9s1QDDw1fg200DwgedEpt8rG0nd4PJ7Jhd98xDT2LbdY8gX1y6Mxos_v2EB_97rwRw=s292-p-k";
+  var coin_img = new Image();
+  coin_img.src ="coin.svg";
 
   // keys' variables & data
   var x = 0;
@@ -106,35 +108,50 @@ window.onload = function() {
     if (dir == 0)
     {
       up.style.backgroundColor = "white";
+      up.style.color = "black";
       down.style.backgroundColor = "white";
+      down.style.color = "black";
       left.style.backgroundColor = "white";
+      left.style.color = "black";
       right.style.backgroundColor = "white";
+      right.style.color = "black";
     }
     else if (dir == 1)
     {
       right.style.backgroundColor = "rgb(245, 66, 96)";
+      right.style.color = "white";
     }
     else if (dir == 2)
     {
-      left.style.backgroundColor = "rgb(182, 66, 245)";
+      left.style.backgroundColor = "rgb(230, 55, 221)";
+      left.style.color = "white";
     }
     else if (dir == 3)
     {
       down.style.backgroundColor = "rgb(66, 138, 245)";
+      down.style.color = "white";
     }
     else if (dir == 4)
     {
       up.style.backgroundColor = "rgb(37, 217, 91)";
+      up.style.color = "white";
     }
   }
-  
+
+  // variables (coin_coordinates)
+  let coinx = Math.random() * (absol_w - 50);
+  let coiny = Math.random() * (absol_h - 50);
+
+  //variable (score_count)
+  let score = 0;
+
   // movement of rocket
   function move()
   {
     // variables
     var ping = (Date.now()-timenow)/1000;
     timenow = Date.now();
-    var fps = Math.round(1/ping);
+    let fps = Math.round(1/ping);
 
     // clear canvas
     ctx.clearRect(0,0,absol_w,absol_h);
@@ -148,7 +165,11 @@ window.onload = function() {
     //rocket
     ctx.beginPath();
     ctx.drawImage(img,x,y,120,120);
-    
+
+    // coin
+    ctx.beginPath();
+    ctx.drawImage(coin_img,coinx,coiny,50,50);
+
     // motion
 
     // right
@@ -186,11 +207,21 @@ window.onload = function() {
         y -= (speed * ping);
       }
     }
+
+    if (coinx <= x+100 && x <= coinx+50 && coiny <= y+100 && y <= coiny+50)
+    {
+      coinx = Math.random() * (absol_w - 50);
+      coiny = Math.random() * (absol_h - 50);
+      score += 100;
+      document.getElementById("score_count").innerText = "Score: "+score;
+    }
+
     // animate
     window.requestAnimationFrame(move);
   }
   // calling function
   move();
+  
 }
 let stats = true;
 function controls_change_state()
