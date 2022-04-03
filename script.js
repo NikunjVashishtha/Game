@@ -142,10 +142,10 @@ window.onload = function() {
   let coinx = Math.random() * (absol_w - 50);
   let coiny = Math.random() * (absol_h - 50);
 
-  //variable (score_count)
+  // variable (score_count)
   let score = 0;
 
-  // movement of rocket
+  // motion_function
   function move()
   {
     // variables
@@ -153,20 +153,20 @@ window.onload = function() {
     timenow = Date.now();
     let fps = Math.round(1/ping);
 
-    // clear canvas
+    // clear_canvas
     ctx.clearRect(0,0,absol_w,absol_h);
 
-    // fps
+    // render_fps
     ctx.beginPath();
     ctx.font = '25px Sans-serif';
     ctx.fillStyle = 'white';
     ctx.fillText("FPS: "+fps,20,30);
 
-    //rocket
+    // render_rocket
     ctx.beginPath();
     ctx.drawImage(img,x,y,120,120);
 
-    // coin
+    // render_coin
     ctx.beginPath();
     ctx.drawImage(coin_img,coinx,coiny,50,50);
 
@@ -208,6 +208,7 @@ window.onload = function() {
       }
     }
 
+    // coin_generator
     if (coinx <= x+100 && x <= coinx+50 && coiny <= y+100 && y <= coiny+50)
     {
       coinx = Math.random() * (absol_w - 50);
@@ -238,4 +239,9 @@ function controls_change_state()
     document.getElementById("all_controls").style.display = "block";
     stats = !stats;
   }
+}
+document.getElementsByTagName("body")[0].onclick(disappear);
+function disappear()
+{
+  document.getElementById("intro").style.display = "none";
 }
