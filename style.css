@@ -1,0 +1,29 @@
+html {
+    background: url("back.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+body {
+    margin: 0;
+}
+#game_canvas {
+    position: absolute;
+}
+#controls_1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+#controls_2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.button {
+    height: 4rem;
+    width: 4rem;
+    border: 1px hidden;
+    margin: 0.125rem;
+    border-radius: 15px;
+}
